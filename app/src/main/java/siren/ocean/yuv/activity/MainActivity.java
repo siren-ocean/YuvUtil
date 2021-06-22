@@ -4,10 +4,14 @@ import android.Manifest;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     private final List<Integer> anglesData = new ArrayList<>(Arrays.asList(0, 90, 180, 270));
     private final List<Boolean> mirrorData = new ArrayList<>(Arrays.asList(true, false));
     private final CameraParameter parameter = PreferencesUtility.getCameraParameter();
+    private LinearLayout includeSheetLayout;
+    private LinearLayout llGesture;
+    private BottomSheetBehavior<LinearLayout> mSheetBehavior;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +59,18 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
     }
 
     private void initView() {
-        mCameraView = findViewById(R.id.view_camera);
         ivPhoto = findViewById(R.id.iv_photo);
+        mCameraView = findViewById(R.id.view_camera);
+        includeSheetLayout = findViewById(R.id.include_bottom_sheet);
+        mSheetBehavior = BottomSheetBehavior.from(includeSheetLayout);
+        mSheetBehavior.setHideable(false);
+        llGesture = (LinearLayout) findViewById(R.id.ll_gesture);
+        llGesture.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            public void onGlobalLayout() {
+                llGesture.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                mSheetBehavior.setPeekHeight(llGesture.getMeasuredHeight());
+            }
+        });
     }
 
     private void initPreview() {

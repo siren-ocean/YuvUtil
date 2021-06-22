@@ -54,3 +54,5 @@ public static Bitmap nv21ToBitmap(Context context, byte[] data, int width, int h
     }
 ```
 
+### 参考
+https://github.com/hzl123456/LibyuvDemo

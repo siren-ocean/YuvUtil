@@ -1,139 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <siren.ocean.yuv.widget.CameraView
         android:id="@+id/view_camera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical">
-
-        <RelativeLayout
-            android:id="@+id/rl_camera"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="#AAffffff">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:paddingStart="20dp"
-                android:text="Camera ID"
-                android:textSize="18sp" />
-
-            <Spinner
-                android:id="@+id/sp_camera_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:paddingEnd="20dp" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/rl_resolution"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@id/rl_camera"
-            android:background="#AAffffff">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:paddingStart="20dp"
-                android:text="Resolution"
-                android:textSize="18sp" />
-
-            <Spinner
-                android:id="@+id/sp_resolution"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:paddingEnd="20dp" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/rl_orientation"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@id/rl_resolution"
-            android:background="#AAffffff">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:paddingStart="20dp"
-                android:text="Orientation"
-                android:textSize="18sp" />
-
-            <Spinner
-                android:id="@+id/sp_orientation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:paddingEnd="20dp" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/rl_rotation"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@id/rl_orientation"
-            android:background="#AAffffff">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:paddingStart="20dp"
-                android:text="Rotation"
-                android:textSize="18sp" />
-
-            <Spinner
-                android:id="@+id/sp_rotation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:paddingEnd="20dp" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/rl_mirror"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@id/rl_rotation"
-            android:background="#AAffffff">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:paddingStart="20dp"
-                android:text="Mirror"
-                android:textSize="18sp" />
-
-            <Spinner
-                android:id="@+id/sp_mirror"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:paddingEnd="20dp" />
-        </RelativeLayout>
-    </LinearLayout>
+    <include
+        android:id="@+id/include_bottom_sheet"
+        layout="@layout/include_bottom_sheet" />
 
     <ImageView
         android:id="@+id/iv_photo"
         android:layout_width="100dp"
         android:layout_height="100dp" />
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
