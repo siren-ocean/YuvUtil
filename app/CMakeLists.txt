@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.4.1)
+cmake_minimum_required(VERSION 3.10)
 
 #include头文件目录
 include_directories(src/main/cpp)
@@ -20,9 +20,4 @@ set_target_properties(libyuv
 add_library(yuv_util SHARED ${FACE_COMPILE_CODE})
 
 #添加工程所依赖的库
-find_library(log-lib log)
-target_link_libraries(yuv_util
-        libyuv
-        jnigraphics
-        z
-        ${log-lib})
+target_link_libraries(yuv_util libyuv)
