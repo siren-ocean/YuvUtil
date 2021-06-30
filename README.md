@@ -4,6 +4,9 @@
 并简单封装了下Camera1的摄像头，实现摄像头Id选取，分辨率选择和方向预览。
 
 ---
+  
+![avatar](demonstration.gif)
+
 camera获取到原始nv21数据之后，通过nv21RotateMirror进行处理。
 
 
